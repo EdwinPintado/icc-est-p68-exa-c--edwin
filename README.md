@@ -43,6 +43,8 @@ Este metodo debe sumar los puntos de todos los atletas con `isStarter = true` en
 
 ### 1. Campo calculado en Tournament (OBLIGATORIO)
 
+Este campo calculado permite obtener rapidamente el total de puntos titulares de un torneo para poder comparar torneos al ordenar y para usar ese valor como criterio en la busqueda binaria.
+
 Implementar correctamente:
 
 ```java
@@ -55,36 +57,51 @@ public int getTotalStarterPoints() {
 
 Implementar el metodo de ordenamiento correspondiente:
 
-| Fila | Algoritmo      | Orden      | Nombre exacto del metodo |
-|------|----------------|------------|--------------------------|
-| A    | Bubble Sort    | Descendente| `sortBubbleDesc`         |
-| B    | Selection Sort | Descendente| `sortSelectionDesc`      |
+| Fila | Algoritmo      | Orden       | Nombre exacto del metodo |
+|------|----------------|-------------|--------------------------|
+| A    | Bubble Sort    | Descendente | `sortBubbleDesc`         |
+| B    | Selection Sort | Descendente | `sortSelectionDesc`      |
 
 ### 3. Busqueda binaria segun fila
+
+Cada fila debe ejecutar la busqueda usando exactamente los parametros asignados en la tabla (Fila A o Fila B) e imprimir en consola, para cada busqueda, si el torneo fue encontrado o no.
 
 Implementar metodos de busqueda binaria para cada fila (arreglo previamente ordenado en descendente):
 
 ```java
+// FILA A
 public Tournament binarySearchByTotalStarterPointsFilaA(Tournament[] tournaments, int totalStarterPoints)
+
+// FILA B
 public Tournament binarySearchByTotalStarterPointsFilaB(Tournament[] tournaments, int totalStarterPoints)
 ```
 
 Tabla de busquedas por fila:
 
-| Fila | Busqueda 1                    | Busqueda 2                  |
-|------|-------------------------------|-----------------------------|
-| A    | 61 puntos (existe)            | 50 puntos (no existe)       |
-| B    | 70 puntos (existe)            | 33 puntos (no existe)       |
+| Fila | Busqueda 1 | Busqueda 2 |
+|------|------------|------------|
+| A    | 61 puntos  | 50 puntos  |
+| B    | 70 puntos  | 33 puntos  |
 
 ### 4. Salida en consola
 
-Implementar `main` para mostrar:
+Implementar `main` para mostrar, segun la fila asignada:
 
+Fila A:
 1. Listado original.
 2. Listado ordenado para Fila A.
 3. Resultado de las 2 busquedas de Fila A.
-4. Listado ordenado para Fila B.
-5. Resultado de las 2 busquedas de Fila B.
+
+Fila B:
+1. Listado original.
+2. Listado ordenado para Fila B.
+3. Resultado de las 2 busquedas de Fila B.
+
+Adicionalmente, deben tomar una captura (o capturas) de la salida de consola y agregarla(s) al final de este README como evidencia. En la captura debe verse claramente:
+
+1. Listado original.
+2. Listado ordenado para Fila X.
+3. Resultado de las 2 busquedas de Fila X.
 
 ---
 
@@ -120,23 +137,12 @@ java -cp "tools/junit-platform-console-standalone-1.7.0.jar:bin:lib/*" \
 
 ## Rubrica
 
-| Requerimiento                    | Puntos |
-|----------------------------------|--------|
-| Campo calculado                  | 2.6    |
-| Ordenamiento por fila            | 2.6    |
-| Busqueda binaria por fila        | 2.6    |
-| Salida en consola                | 2.0    |
-| **Total**                        | **10** |
+| Requerimiento                              | Puntos |
+|--------------------------------------------|--------|
+| Campo calculado                            | 2.6    |
+| Ordenamiento por fila                      | 2.6    |
+| Busqueda binaria por fila                  | 2.6    |
+| Salida en consola Capturas en README       | 2.0    |
+| **Total**                                  | **10** |
 
----
 
-## Archivos Clave de Esta Evaluacion
-
-- `src/models/Athlete.java`
-- `src/models/Club.java`
-- `src/models/Tournament.java`
-- `src/controllers/TournamentController.java`
-- `src/test/TournamentTestData.java`
-- `src/test/TournamentControllerTest.java`
-- `src/AppTournament.java`
-- `lib/validadores-torneos.jar`
